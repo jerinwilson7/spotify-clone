@@ -29,6 +29,17 @@ body{
 }
 
 
+:root{
+    --background-base: #121212;
+    --background-noise: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=);
+}
+
+
+.Root{
+    --content-spacing: clamp(16px,16px + (100vw - 420px - 420px - 600px)/424*8,24px);
+}
+
+
 .body-main{
     position: relative;
     height: 100vh;
@@ -191,7 +202,7 @@ nav ul li a span{
     white-space: nowrap;
     font-size: 1rem;
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     background-color: transparent;
     border: none;
     border-radius: 9999px;
@@ -203,8 +214,7 @@ nav ul li a span{
     vertical-align: middle;
     transform: translate3d(0px 0px 0px);
     color: #a7a7a7;
-    padding-block-start: 6px;
-    padding-block-end: 6px;
+    padding: 4px 8px;
     align-items: center;
 }
 
@@ -220,6 +230,8 @@ nav ul li a span{
 }
 
 .lib-add button{
+    padding-top: 2px;
+
     overflow-wrap: anywhere;
     font-weight: 700;
     background-color: transparent;
@@ -298,6 +310,7 @@ nav ul li a span{
 
 .play-sec{
 
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -317,7 +330,7 @@ nav ul li a span{
 .play-title{
     color: #fff;
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     font-size: 1rem;
 }
 .play-desc{
@@ -331,6 +344,25 @@ nav ul li a span{
     align-self: flex-start;
 }
 
+.left-sidebar-btn button{
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: spotify-medium;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 9999px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transform: translate3d(0px,0px,0px);
+    padding: 0px;
+    min-inline-size: 0px;
+    align-self: center;
+    color: #b3b3b3;
+}
+
 .left-sidebar-btn button span{
     position: relative;
     background-color: #fff;
@@ -339,8 +371,9 @@ nav ul li a span{
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    font-size: 14px;
-    font-family: spotify-medium;
+    font-size: inherit;
+    font-family: spotify-bold;
+    min-block-size: 32px;
     font-weight: 700;
     padding-block-start: 4px;
     padding-block-end: 4px;
@@ -373,13 +406,14 @@ nav ul li a span{
 .terms a{
     text-decoration: none;
     margin-bottom: 8px;
-    line-height: normal;
+    /* line-height: normal; */
     border: none;
     padding: 0;
     color: #a7a7a7;
     align-items: center;
     display: inline-flex;
     text-align: start;
+    line-height: 20px;
 
 }
 
@@ -397,6 +431,9 @@ nav ul li a span{
     padding-inline-end: 16px;
     text-decoration: none;
     text-align: start;
+    display: inline-block;
+    height: 19px;
+
 }
 
 .cookies span{
@@ -416,7 +453,7 @@ nav ul li a span{
     font-size: 0.875rem;
     overflow: anywhere;
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     background-color: transparent;
     border-radius: 9999px;
     position: relative;
@@ -428,7 +465,7 @@ nav ul li a span{
     padding-block-end: 3px;
     padding-inline-start: 32px;
     padding-inline-end: 15px;
-    border: 1px solid #878787;
+    border: 1px solid #727272;
     color: #000000;
     min-inline-size: 0px;
     min-block-size: 32px;
@@ -490,7 +527,7 @@ footer{
 
 .footer-title{
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     font-size: 0.875rem;
 
 }
@@ -505,7 +542,7 @@ footer{
 .spotify-footer button{
     font-size: 1rem;
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     background-color: transparent;
     border: 0px;
     border-radius: 999px;
@@ -584,7 +621,7 @@ footer{
     justify-content: space-between;
     white-space: nowrap;
     width: 100%;
-    padding: 0 16px;
+    padding: 0 var(--content-spacing);
     max-width: 1955px;
 
 }
@@ -592,6 +629,11 @@ footer{
 .back-btn-container{
     display: flex;
     gap: 8px;
+    align-items: center;
+}
+
+.back-btn-container button:nth-child(2){
+    display: none;
 }
 
 .back-btn-container button{
@@ -614,7 +656,7 @@ footer{
 
 .back-btn-container button svg{
     opacity: 1;
-    fill: #b3b3b3;
+    fill: currentColor;
     width: 16px;
     height: 16px;
     
@@ -634,9 +676,9 @@ footer{
 .signup-btn{
     padding-inline-start: 8px;
     overflow-wrap: anywhere;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: spotify-medium;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: spotify-bold;
     background-color: transparent;
     border: 0px;
     border-radius: 9999px;
@@ -647,7 +689,7 @@ footer{
     min-block-size: 48px;
     padding-block-start: 8px;
     padding-block-end: 8px;
-    padding-inline-end: 32px;
+    padding-inline-end: 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -655,9 +697,9 @@ footer{
 }
 
 .login-btn{
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 700;
-    font-family: spotify-medium;
+    font-family: spotify-bold;
     background-color: transparent;
     border: none;
     border-radius: 9999px;
@@ -727,6 +769,7 @@ footer{
     min-width: 0;
     z-index: 0;
     overflow-y: scroll;
+    scrollbar-width: none;
     overflow-x: hidden;
 
 
@@ -752,9 +795,8 @@ footer{
 }
 
 .main-view-empty{
-    background: 
-    linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=') center/cover;
+    background-color: rgb(83,83,83);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6) 0, var(--background-base)100%),var(--background-noise);
     height: 332px;
     margin-top: -64px;
     position: absolute;
@@ -776,7 +818,7 @@ footer{
     flex-flow: row wrap;
     width: 100%;
     max-width: 1955px;
-    padding: 0 16px;
+    padding: 0 var(--content-spacing);
 }
 
 .popular-atists{
@@ -810,8 +852,8 @@ footer{
 .item-main-title h2{
     color: #fff;
     font-size: 1.5rem;
-    font-family: spotify-bold;
-    font-weight: 700;
+    font-family: spotify-title-bold;
+    font-weight: 600;
 
 }
 
@@ -824,4 +866,170 @@ footer{
     color: inherit;
     text-decoration: none;
 
+}
+
+.show-all{
+    margin-left: 8px;
+    background: transparent;
+    color: #b3b3b3;
+    white-space: nowrap;
+    margin-block-start: 5px;
+    text-decoration: none;
+}
+
+.show-all span{
+    font-weight: 700;
+    font-family: spotify-bold;
+    font-size: 0.875rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.card-container{
+    display: grid;
+    /* grid-gap: ; */
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    content-visibility: auto;
+    grid-template-rows: repeat(1,minmax(0,1fr));
+    grid-auto-rows: 0;
+}
+
+.item-card{
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    row-gap: 8px;
+    position: relative;
+    border-radius: 6px;
+    min-block-size: 48px;
+    z-index: 0;
+    color: #fff;
+    padding-block: 12px;
+    padding-inline: 12px;
+
+}
+
+.item-img-container{
+    position: relative;
+
+}
+
+.item-img-container img{
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    /* position: absolute; */
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    /* min-height: 180px;
+    min-width: 180px; */
+    aspect-ratio: 1;
+
+}
+
+.item-card-contents{
+    column-gap: 12px;
+    align-items: center;
+    display: flex;
+    color: #fff;
+}
+
+.item-card-contents-container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-basis: 100%;
+    align-items: flex-start;
+}
+
+.item-card-contents-container a{
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.item-card-contents-container a p{
+    overflow-wrap: anywhere;
+    outline: none;
+    text-decoration: none;
+    margin-block: 0px;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: spotify-medium;
+    color: inherit;
+
+}
+
+.content-category{
+    overflow-wrap: anywhere;
+    margin-block: 0px;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    font-family: spotify-medium;
+    color: #a7a7a7;
+
+}
+
+.content-category-container{
+    overflow: hidden;
+
+}
+
+.content-category-container div{
+    color: #a7a7a7;
+    font-family: spotify-medium;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    /* margin-top: 4px; */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.content-category-container div span{
+    color: #a7a7a7;
+    white-space: normal;
+}
+
+
+
+@media screen and (min-width:990px){
+    .card-container{
+        /* grid-gap: ; */
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    .back-btn-container button:nth-child(2){
+        display: flex;
+    }
+
+}
+
+
+@media screen and (min-width:1170px){
+    .card-container{
+        grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+}
+
+
+@media screen and (min-width:1351px){
+    .card-container{
+        grid-template-columns: repeat(5,minmax(0,1fr));
+    }
+}
+
+
+@media screen and (min-width:1720px){
+    .card-container{
+        grid-template-columns: repeat(6,minmax(0,1fr));
+    }
 }
